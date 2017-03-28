@@ -5,10 +5,10 @@
 - Rails 5.0.2
 - Ruby 2.3.3p222
 
-## Seeding the Database
+## Seed the Database
 - run "rake db:seed"
 
-## To Clear the Database and Not Seed
+## Wipe the Database
 - run "rake db:seed seed=false"
 
 ## Define and explain a set of data models that facilitate menu item pricing determined by a combination of 3 factors: restaurant location, order type, and time of day.
@@ -53,8 +53,8 @@ Each of Nike's locations will a PLC per each of Nike's Price Levels e.g.
 
 Each PLC consists of a Price Level, Order Type and Day Part.
 Only the Order Type and Day Part of the PLC can be changed and
-each PLC's cominbation of Order Type and Day Part must be unique within
-their location e.g. if Uptown's Low-End PLC consists of the "In-Store" Order Type and
+each PLC's combination of Order Type and Day Part must be unique within
+their respective location e.g. if Uptown's Low-End PLC consists of the "In-Store" Order Type and
 the "Afternoon" Day Part, no other PLC within Uptown can consist of the "In-Store"
 Order Type and the "Afternoon" Day Part. This ensures that an Order Type and Day Part only
 maps to one of the Brand's Price Levels.
@@ -62,7 +62,7 @@ maps to one of the Brand's Price Levels.
 How Does Menu Item Pricing Work then?
 
 In pricing, a Location specifies it's current Order Type and Day Part. Pricing will then find
-the Location's PLC that matches the Order Type and Day Part. That PLC will map to a Price Level.
+the Location's PLC that matches the Order Type and Day Part (there may not be a PLC that matches in which case the Menu Items will not have a price). That PLC will map to a Price Level.
 We then apply that Price Level to the Menu Item(s) being sold e.g.
 
 Let's say we're doing pricing for Nike's Uptown Location. The Location's Order Type is "In-Store" and the Day Part is "Afternoon". We find a PLC within Nike's Uptown Location that has the same Order Type and Day Part which we know to be Uptown's Low-End PLC from our previous example.
