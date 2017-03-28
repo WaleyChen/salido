@@ -1,0 +1,14 @@
+= render partial: "successAlert", locals: { msg: @successMsg }
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => location_url(:id => @location.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name} > #{@location.name}"
+  %h5= "Edit Price Level Configs"
+
+%li.list-group-item
+  - @priceLevelConfigs.each do |plc|
+    %a.btn.btn-default.btn-block{:href => edit_plc_url(:location_id => @location.id, :price_level_name => plc.name)}
+      = plc.name

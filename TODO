@@ -1,0 +1,8 @@
+- thorough testing
+- answer the questions
+
+Complete the challenge according to the Challenge Instructions below.
+Post your solution in a Github repo. Be sure to include a README.
+Send a link to your solution to challenge-accepted@salido.com.
+
+Define and explain a set of data models that facilitate menu item pricing determined by a combination of 3 factors: restaurant location, order type, and time of day.

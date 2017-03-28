@@ -1,0 +1,12 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_brands_url}
+    = "Back"
+    
+%ul.list-group
+  %li.list-group-item
+    %h4= "Manage Brands"
+
+    %li.list-group-item
+      - @brands.each do |brand|
+        %a.btn.btn-default.btn-block{:href => url_for(brand)}
+          = brand.name

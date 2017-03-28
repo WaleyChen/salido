@@ -1,0 +1,14 @@
+= render partial: "successAlert", locals: { msg: @successMsg }
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_menu_items_url(:brand_id => @brand.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "Edit Menu Items"
+
+%li.list-group-item
+  - @menuItems.each do |mi|
+    %a.btn.btn-default.btn-block{:href => edit_brand_menu_item_url(@brand, mi)}
+      = mi.name

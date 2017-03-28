@@ -1,0 +1,16 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_locations_url(:brand_id => @brand)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "Add Location"
+
+%li.list-group-item
+  = render partial: "errMsg", locals: { errMsg: @errMsg }
+
+  = form_for(:location, url: locations_path, method: :post, :html => {:class => "form-horizontal"}) do |f|
+    = f.text_field :name, :placeholder => "Name", :class => "form-control"
+    %br
+    = f.hidden_field "brand_id", value: @brand.id.to_s
+    = f.submit "Submit", :class => "btn btn-default"

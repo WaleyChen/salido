@@ -1,0 +1,20 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => brands_url}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "Manage"
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_locations_url(:brand_id => @brand.id)}
+    Locations
+
+  %a.btn.btn-default.btn-block{:href => manage_order_types_url(:brand_id => @brand.id)}
+    Order Types
+
+  %a.btn.btn-default.btn-block{:href => manage_price_levels_url(:brand_id => @brand.id)}
+    Price Levels
+
+  %a.btn.btn-default.btn-block{:href => manage_menu_items_url(:brand_id => @brand.id)}
+    Menu Items

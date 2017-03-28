@@ -1,0 +1,11 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_order_types_url(:brand_id => @brand)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "View Order Types"
+
+- @orderTypes.each do |orderType|
+  %li.list-group-item
+    = orderType.name

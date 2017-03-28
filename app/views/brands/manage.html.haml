@@ -1,0 +1,10 @@
+= render partial: "successAlert", locals: { msg: @successMsg }
+
+%li.list-group-item
+  %h4= "Brands"
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => new_brand_url}
+    = "Add"
+  %a.btn.btn-default.btn-block{:href => brands_url}
+    = "Manage"

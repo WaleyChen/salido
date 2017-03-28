@@ -1,0 +1,26 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => location_price_level_configs_url(:location_id => @location.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name} > #{@location.name}"
+  %h5= "Edit \"#{@plc.priceLevelName}\" Configuration"
+
+%li.list-group-item
+  - if @errMsgs
+    - @errMsgs.each do |msg|
+      = render partial: "errMsg", locals: { errMsg: msg }
+
+  - dpNames = @location.getDayPartNames()
+  - otNames = @brand.getOrderTypeNames()
+  - plNames = @brand.getPriceLevelNames()
+
+  - url = @plc.new_record? ? location_price_level_configs_path(@location) : location_price_level_config_path(@location, @plc)
+  = form_for(@plc, :url => url, :html => {:class => "form-horizontal"}) do |f|
+    = f.select :orderTypeName, otNames, { :include_blank => true, :prompt => "Select Order Type" }, :class => "form-control"
+    %br
+    = f.select :dayPartName, dpNames, { :include_blank => true, :prompt => "Select Day Part (Optional)" }, :class => "form-control"
+    %br
+    = f.hidden_field "location_id", value: @location.id.to_s
+    = f.hidden_field "price_level_name", value: @plc.priceLevelName
+    = f.submit "Submit", :class => "btn btn-default"

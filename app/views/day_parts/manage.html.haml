@@ -1,0 +1,15 @@
+= render partial: "successAlert", locals: { msg: @successMsg }
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => location_url(:id => @location.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name} > #{@location.name}"
+  %h5= "Manage Day Parts"
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => new_location_day_part_url(@location)}
+    = "Add"
+  %a.btn.btn-default.btn-block{:href => location_day_parts_url(:location_id => @location.id)}
+    = "View"

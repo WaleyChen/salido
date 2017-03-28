@@ -1,0 +1,18 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => locations_url(:brand_id => @brand.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name} > #{@location.name}"
+  %h5= "Manage Location"
+
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_day_parts_url(:location_id => @location.id)}
+    Day Parts
+
+  %a.btn.btn-default.btn-block{:href => location_price_level_configs_url(:location_id => @location.id)}
+    Edit Price Level Configurations
+
+  %h5= "Other"
+  %a.btn.btn-default.btn-block{:href => location_menu_items_url(:location_id => @location.id)}
+    View Menu Item Prices

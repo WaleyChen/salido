@@ -1,0 +1,16 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_order_types_url(:brand_id => @brand)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "Add Order Type"
+
+%li.list-group-item
+  = render partial: "errMsg", locals: { errMsg: @errMsg }
+
+  = form_for(:order_type, url: brand_order_types_path, method: :post, :html => {:class => "form-horizontal"}) do |f|
+    = f.text_field :name, :placeholder => "Name", :class => "form-control"
+    %br
+    = f.hidden_field "brand_id", value: @brand.id.to_s
+    = f.submit "Submit", :class => "btn btn-default"

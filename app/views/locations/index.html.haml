@@ -1,0 +1,12 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_locations_url(:brand_id => @brand.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "Manage Locations"
+
+%li.list-group-item
+  - @locations.each do |loc|
+    %a.btn.btn-default.btn-block{:href => location_url(loc)}
+      = loc.name

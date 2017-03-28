@@ -1,0 +1,16 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => brand_menu_items_url(:brand_id => @brand.id)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "Add Item"
+
+%li.list-group-item
+  = render partial: "errMsg", locals: { errMsg: @errMsg }
+
+  = form_for(:menu_item, url: brand_menu_items_path, method: :post, :html => {:class => "form-horizontal"}) do |f|
+    = f.text_field :name, :placeholder => "Name", :class => "form-control"
+    %br
+    = f.hidden_field "brand_id", value: @brand.id.to_s
+    = f.submit "Submit", :class => "btn btn-default"

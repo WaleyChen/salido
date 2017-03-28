@@ -1,0 +1,11 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_day_parts_url(:location_id => @location.id)}
+    = "Back"
+    
+%li.list-group-item
+  %h4= "#{@brand.name} > #{@location.name}"
+  %h5= "View Day Parts"
+
+- @dayParts.each do |dp|
+  %li.list-group-item
+    = dp.name

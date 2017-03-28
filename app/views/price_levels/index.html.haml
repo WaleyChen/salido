@@ -1,0 +1,11 @@
+%li.list-group-item
+  %a.btn.btn-default.btn-block{:href => manage_price_levels_url(:brand_id => @brand)}
+    = "Back"
+
+%li.list-group-item
+  %h4= "#{@brand.name}"
+  %h5= "View Price Levels"
+
+- @priceLevels.each do |priceLevel|
+  %li.list-group-item
+    = priceLevel.name
