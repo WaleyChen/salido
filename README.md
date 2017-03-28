@@ -27,25 +27,26 @@ Brands can have many Locations, Menu Items, Order Types and Price Levels.
 Each Location can have many Day Parts but only a single Price Level Configuration (PLC) per each Location's Brand's Price Level.
 
 For example, let's say Nike has the following Price Levels:
-Low-End
-Mid-End
-High-End
+- Low-End
+- Mid-End
+- High-End
 
 and has 3 Locations:
-Uptown
-Midtown
-Downtown
+- Uptown
+- Midtown
+- Downtown
+
 
 Each of Nike's locations will a PLC per each of Nike's Price Levels e.g.
-Uptown
+- Uptown
   - Low-End PLC
   - Mid-End PLC
   - High-End PLC
-Midtown
+- Midtown
   - Low-End PLC
   - Mid-End PLC
   - High-End PLC
-Downtown
+- Downtown
   - Low-End PLC
   - Mid-End PLC
   - High-End PLC
@@ -59,14 +60,15 @@ Order Type and the "Afternoon" Day Part. This ensures that an Order Type and Day
 maps to one of the Brand's Price Levels.
 
 How Does Menu Item Pricing Work then?
+
 In pricing, a Location specifies it's current Order Type and Day Part. Pricing will then find
 the Location's PLC that matches the Order Type and Day Part. That PLC will map to a Price Level.
 We then apply that Price Level to the Menu Item(s) being sold e.g.
 
 Let's say we're doing pricing for Nike's Uptown Location. The Location's Order Type is "In-Store" and the Day Part is "Afternoon". We find a PLC within Nike's Uptown Location that has the same Order Type and Day Part which we know to be Uptown's Low-End PLC from our previous example.
 Uptown's Low-End PLC maps to Nike's Low-End Price Level. Let's say that all items in the Low-End
-Price Level have a cost of $2.00. Therefore, all of Nike's Uptown Location Menu Items will then have a cost of $2.00 because the Location's current Order Type and Day Part map to the Low-End
-Price Level which prices all Menu Items to be $2.00. And that's how Menu Item pricing is determined by a resturant's Location, Order Type and Day Part.
+Price Level have a cost of $2.00. Therefore, all of Nike's Uptown Location's Menu Items will have a cost of $2.00 because the Location's current Order Type and Day Part map to the Low-End
+Price Level which prices all Menu Items to $2.00. That's how Menu Item pricing is determined by a resturant's Location, Order Type and Day Part.
 
 
 
