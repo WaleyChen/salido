@@ -1,17 +1,17 @@
 # README
 
-* Versions
+## Versions
 - MongoDB v2.6.6
 - Rails 5.0.2
 - Ruby 2.3.3p222
 
-* Seeding the Database
+## Seeding the Database
 - run "rake db:seed"
 
-* To Clear the Database and Not Seed
+## To Clear the Database and Not Seed
 - run "rake db:seed seed=false"
 
-Define and explain a set of data models that facilitate menu item pricing determined by a combination of 3 factors: restaurant location, order type, and time of day.
+## Define and explain a set of data models that facilitate menu item pricing determined by a combination of 3 factors: restaurant location, order type, and time of day.
 
 There are 7 data models that facilitate menu item pricing:
 - Brands
