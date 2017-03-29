@@ -29,10 +29,10 @@ class MenuItemsController < ApplicationController
     @successMsg = getSuccessMsg(session)
   end
 
-  def location_menu_items
+  def prices
     @location = Location.where(:id => params[:location_id]).first
     @brand = @location.brand
-    @priceLevelConfig = nil
+    @plc = nil
 
     if (params[:price_level_config])
       @orderTypeName = params[:price_level_config][:order_type]
@@ -40,7 +40,12 @@ class MenuItemsController < ApplicationController
         return
       end
       @dayPartName = params[:price_level_config][:day_part]
-      @priceLevelConfig = @location.priceLevelConfigs.where(:dayPartName => @dayPartName, :orderTypeName => @orderTypeName).first
+
+      plcs = @location.priceLevelConfigs.where(:orderTypeName => @orderTypeName)
+      @plc = plcs.where(:dayPartName => @dayPartName).first
+      if @plc.nil?
+        @plc = plcs.where(:dayPartName => "").first
+      end
     end
   end
 

@@ -25,6 +25,6 @@ Rails.application.routes.draw do
 
   get 'brand_price_levels/:brand_id', to: 'price_levels#brand_price_levels', as: :brand_price_levels
 
-  get 'location_menu_items/:location_id', to: 'menu_items#location_menu_items', as: :location_menu_items
+  get 'menu_item_prices/:location_id', to: 'menu_items#prices', as: :menu_item_prices
   # get 'location_price_levels/:location_id', to: 'price_levels#location_price_levels', as: :location_price_levels
 end

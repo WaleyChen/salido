@@ -9,7 +9,7 @@
 - dpNames = @location.getDayPartNames()
 - otNames = @brand.getOrderTypeNames()
 %li.list-group-item
-  = form_for(:price_level_config, url: location_menu_items_url, method: :get, :html => {:class => "form-horizontal"}) do |f|
+  = form_for(:price_level_config, url: menu_item_prices_url, method: :get, :html => {:class => "form-horizontal"}) do |f|
     = f.select "order_type", otNames, { selected: @orderTypeName,  prompt: "Select Order Type" }, :class => "form-control"
     %br
     = f.select "day_part", dpNames, { selected: @dayPartName, include_blank: true, prompt: "Select Day Part (Optional)"  }, :class => "form-control"
@@ -21,20 +21,20 @@
 %li.list-group-item
   %h5= "Price Level"
 %li.list-group-item
-  - if !@priceLevelConfig
+  - if !@plc
     = "No Price Level Found."
   - else
-    = @priceLevelConfig.priceLevelName
+    = @plc.priceLevelName
 
 %li.list-group-item
   %h5= "Menu Item Prices"
   - @brand.menuItems.each do |mi|
     %li.list-group-item
       - @price
-      - if !@priceLevelConfig
+      - if !@plc
         - @price = "NA"
       - else
-        - @price = mi.prices[@priceLevelConfig.priceLevelName].to_s
+        - @price = mi.prices[@plc.priceLevelName].to_s
         - if @price == ""
           - @price = "NA"
       = mi.name + ": " + @price

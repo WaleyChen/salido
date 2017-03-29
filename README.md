@@ -61,14 +61,11 @@ maps to one of the Brand's Price Levels.
 
 How Does Menu Item Pricing Work then?
 
-In pricing, a Location specifies it's current Order Type and Day Part. Pricing will then find
-the Location's PLC that matches the Order Type and Day Part (there may not be a PLC that matches in which case the Menu Items will not have a price). That PLC will map to a Price Level.
-We then apply that Price Level to the Menu Item(s) being sold e.g.
+In pricing, a Location specifies it's current Order Type and an optional Day Part. Pricing will then attempt to find the Location's PLC that matches the Order Type and Day Part. If no match exists, pricing will then attempt to find the Location's PLC that matches the Order Type. If no match exists again, then the Menu Items will not have a price since pricing could not a find an
+appropriate PLC. However if a matching PLC is found, we take the Price Level that the PLC matches
+to and apply it to the Menu Item(s) being sold.
 
-Let's say we're doing pricing for Nike's Uptown Location. The Location's Order Type is "In-Store" and the Day Part is "Afternoon". We find a PLC within Nike's Uptown Location that has the same Order Type and Day Part which we know to be Uptown's Low-End PLC from our previous example.
-Uptown's Low-End PLC maps to Nike's Low-End Price Level. Let's say that all items in the Low-End
-Price Level have a cost of $2.00. Therefore, all of Nike's Uptown Location's Menu Items will have a cost of $2.00 because the Location's current Order Type and Day Part map to the Low-End
-Price Level which prices all Menu Items to $2.00. That's how Menu Item pricing is determined by a resturant's Location, Order Type and Day Part.
+For example, let's say we're doing pricing for Nike's Uptown Location. The Location's Order Type is "In-Store" and the Day Part is "Afternoon". We find a PLC within Nike's Uptown Location that has the same Order Type and Day Part which we know to be Uptown's Low-End PLC from our previous example (If we could not find a matching PLC, pricing would attempt to find a PLC with the same order type in Nike's Uptown Location). Uptown's Low-End PLC maps to Nike's Low-End Price Level. Let's say that all items in the Low-End Price Level have a cost of $2.00. Therefore, all of Nike's Uptown Location's Menu Items will have a cost of $2.00 because the Location's current Order Type and Day Part map to the Low-End Price Level which prices all Menu Items to $2.00. That's how Menu Item pricing is determined by a resturant's Location, Order Type and Day Part.
 
 
 
